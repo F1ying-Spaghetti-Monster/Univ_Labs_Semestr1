@@ -16,7 +16,7 @@ int binary_search (int value, int left, int right){
         if (elements[mid] < value)
             return binary_search(value, mid+1, right); 
     }
-    return -1;
+    return left;
 }
 
 int recursion (int goal, int current_element_ind){
@@ -24,13 +24,13 @@ int recursion (int goal, int current_element_ind){
         return -1;
     }
     int i = binary_search(goal, 0, current_element_ind -1);
-    if (i != -1){
+    if (elements[i] == goal){
         elements[i] *= -1;
         elements[current_element_ind] *= -1;
         return 1;
     }
     else {
-        for (int j =current_element_ind -1; j!=-1; j--){
+        for (int j = i; j!=-1; j--){
         if (recursion(goal - elements[current_element_ind], j) == 1){
             elements[current_element_ind] *= -1;
             return 1;

@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     }
     Integral_value *= Step_lenght/3;
     cout << endl << Integral_value << endl;
-
+    eror = (End_of_integral - Start_of_integral) * pow(Step_lenght, 4) * 6 / 180;
     cout << "Eror =  " << eror << endl;
     
 

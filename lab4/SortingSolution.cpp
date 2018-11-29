@@ -8,19 +8,28 @@ int main(int argc, char const *argv[])
 {
     vector<int> elements;
     int a = 0;
-    while (cin >> a)
-    {
-        if (a > 0)
-        {
-            elements.push_back(a);
+    int i = 0;
+    char input[100];
+    cin.getline(input, 100);
+  
+    while (input[i] != '\0'){
+        while (input[i] >= '0' && input[i] <= '9'){
+            a = 10*a + input[i] - '0';
+            i++;
         }
+        if (a != 0){
+            i--;
+            elements.push_back(a);
+            a = 0;
+        }
+        i++;
     }
 
     sort(elements.begin(), elements.end());
 
     int status = 0;
     int goal = 0;
-    int i = 0;
+    i = 0;
     while (i != elements.size())
     {
 
