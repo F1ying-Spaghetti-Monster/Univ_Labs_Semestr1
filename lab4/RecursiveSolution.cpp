@@ -26,11 +26,11 @@ int recursion (int goal, int current_element_ind){
     int i = binary_search(goal, 0, current_element_ind -1);
     if (elements[i] == goal){
         elements[i] *= -1;
-        elements[current_element_ind] *= -1;
+        // elements[current_element_ind] *= -1;
         return 1;
     }
     else {
-        for (int j = i; j!=-1; j--){
+        for (int j = i-1; j!=-1; j--){
         if (recursion(goal - elements[current_element_ind], j) == 1){
             elements[current_element_ind] *= -1;
             return 1;
@@ -47,8 +47,28 @@ int main(int argc, char const *argv[])
 
     int a = 0;
     int goal = 0;
-    int i = -1;
-    while (cin >> a)
+    int i = 0;
+
+    // int summ=0;
+    // for (int i=0;i<25;i++)
+    // {
+    //     int var=rand()%1000;
+    //     elements.push_back(var);
+    //     if (rand()%2) summ+=var; 
+    //     else summ-=var;
+    // }
+    // elements.push_back(abs(summ));
+
+elements.push_back(2);
+        for (int i=0;i<32;i++)
+    {
+         elements.push_back(4);
+        
+    }
+
+cout << "Recursive method" << endl;
+ 
+    /*while (cin >> a)
     {
         if (a > 0)
         {
@@ -56,13 +76,20 @@ int main(int argc, char const *argv[])
             goal += a;
             i++;
         }
-    }
+    }*/
 
     sort(elements.begin(), elements.end());
 
     int status = 0;
     
-    
+    while (i != elements.size())
+    {
+
+        goal += elements[i];
+        i++;
+    }
+    i--;
+
     if (goal % 2 == 1)
     {
         cout << "There is no solution for given numbers.\n";
@@ -76,7 +103,7 @@ int main(int argc, char const *argv[])
         status = 1;
     }
     else
-        status = recursion (goal - elements[i], i);
+        status = recursion (goal, i);
 
     if (status == -1)
     {

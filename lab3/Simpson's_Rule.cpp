@@ -5,11 +5,11 @@ using namespace std;
 
 double func (double x){
 
-    return x*x*x*x;
+    return sin(x);
 }
 
 double diriv4 (double x){
-    return 24;
+    return 1;
 }
 
 double SimpsonsMethod (double range1, double range2, int number_of_steps){
@@ -26,7 +26,7 @@ double SimpsonsMethod (double range1, double range2, int number_of_steps){
 }
 
 double calc_error (double range1, double range2, int number_of_steps){
-    return pow(range2 - range1, 5) * 24 /(180* pow(number_of_steps, 4) );
+    return pow(range2 - range1, 5) * 1 /(180* pow(number_of_steps, 4) );
 }
 
 int main(int argc, char const *argv[])
@@ -40,8 +40,12 @@ int main(int argc, char const *argv[])
     cin >> Start_of_integral; 
     cout <<  endl << "End:  ";
     cin >> End_of_integral;   
+    if ( End_of_integral <= Start_of_integral){
+        return -1;
+    }
     cout << endl << "Number of steps:  ";
     cin >> Number_of_Steps;
+    
 
     double sum = SimpsonsMethod(Start_of_integral, End_of_integral, Number_of_Steps);
     double error = calc_error(Start_of_integral, End_of_integral, Number_of_Steps);
