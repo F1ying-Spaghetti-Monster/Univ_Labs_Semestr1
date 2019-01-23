@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <time.h>
 using namespace std;
 
 int main(int argc, char const *argv[])
@@ -25,26 +25,27 @@ int main(int argc, char const *argv[])
     //     i++;
     // }
        int goal = 0;
-    //     int summ=0;
-    // for (int i=0;i<20;i++)
-    // {
-    //     int var=rand()%1000;
-    //     elements.push_back(var);
-    //     if (rand()%2) {summ+=var; 
-    //     cout << " + " << var;
-    //     }
-    //     else {summ-=var;
-    //     cout << " - " << var;
-    //     }
-    // }
-    // elements.push_back(abs(summ));
- 
- elements.push_back(2);
-        for (int i=0;i<32;i++)
+        int summ=0;
+    srand(time(NULL));
+    for (int i=0;i<10;i++)
     {
-         elements.push_back(4);
-        
+        int var=rand()%1000;
+        elements.push_back(var);
+        if (rand()%2) {summ+=var; 
+        cout << " + " << var;
+        }
+        else {summ-=var;
+        cout << " - " << var;
+        }
     }
+    elements.push_back(abs(summ));
+ 
+//  elements.push_back(2);
+//         for (int i=0;i<32;i++)
+//     {
+//          elements.push_back(4);
+        
+//     }
 
     sort(elements.begin(), elements.end());
 

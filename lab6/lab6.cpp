@@ -19,7 +19,7 @@ bool check_if_in_dictionary(vector <char> &word, const ofstream &dictionary)
                 break;
             }
         }
-        if (str[j] == ' ')
+        if (str[word.size()] == ' ')
             return true;
     }
     return false;
